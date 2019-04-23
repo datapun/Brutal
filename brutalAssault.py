@@ -70,7 +70,9 @@ for link in band_url:
 	temp_band_website = temp_soup.find('p',class_='officialWebiste').find('a')['href']
 	band_website.append(temp_band_website)
 	band_text = temp_soup.find('div',class_='page_content').text
-	band_description.append(band_text)
+	charpos = band_text.find('\t\t\t\t\t\t')
+	band_clean_text = band_text[charpos+6:]
+	band_description.append(band_clean_text)
 	#get band description text. this does not work as the string is different per band
 	#this caused the script to be cut off after 20 bands or so
 	#band_rawtext = re.search('\\t\w+.+',band_text.text)
@@ -78,7 +80,7 @@ for link in band_url:
 	#	band_text = band_rawtext[0].strip('\t')
 	#	band_texts.append(band_text)
 	#except:
-	#	band_texts.append('no text')
+	#	band_texts.append('No description')
 	#video link - error handling if find = nonetype or something similar
 	try:
 		band_videourl.append(temp_soup.find('iframe')['src'])
