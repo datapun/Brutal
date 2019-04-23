@@ -49,24 +49,36 @@ for band in band_link:
 #add all these into a data frame and store it on github/s3 bucket
 
 print('There is '+ str(len(bands_list))+ ' bands so far')
+print('Adding more info, like country of origin, and videos')
 
 #test for one band link:
 #test_link = band_links[0]
 band_country = []
 band_website = []
 band_videourl = []
+band_description = []
 
 for link in band_url:
 	temp_url = requests.get(link).text
 	temp_soup = BeautifulSoup(temp_url, 'html.parser')
 	temp_band_country = temp_soup.find('h5').text
-	band_country.append(temp_band_country.strip('Country:').strip())
+	clean_band_country = temp_band_country[-(len(temp_band_country)-temp_band_country.find(':')-2):]
+	#strip() at the end causes country names to be shortened from Spain to Spai etc.
+	band_country.append(clean_band_country)
+	#strip removes any letter from the entire string, eg n from Spain
+	#therefore this is removed: strip('Country: '))#.strip(' '))
 	temp_band_website = temp_soup.find('p',class_='officialWebiste').find('a')['href']
 	band_website.append(temp_band_website)
-	band_text = temp_soup.find('div',class_='page_content')
-	#get band description text
-	band_rawtext = re.search('\\t\w+.+',band_text.text)
-	band_text = band_rawtext[0].strip('\t')
+	band_text = temp_soup.find('div',class_='page_content').text
+	band_description.append(band_text)
+	#get band description text. this does not work as the string is different per band
+	#this caused the script to be cut off after 20 bands or so
+	#band_rawtext = re.search('\\t\w+.+',band_text.text)
+	#try:
+	#	band_text = band_rawtext[0].strip('\t')
+	#	band_texts.append(band_text)
+	#except:
+	#	band_texts.append('no text')
 	#video link - error handling if find = nonetype or something similar
 	try:
 		band_videourl.append(temp_soup.find('iframe')['src'])
@@ -79,9 +91,9 @@ print('Together, there is ' + str(len(band_videourl))+ ' videos in bands profile
 band_set = set(band_country)
 number_of_countries = (list(band_set))
 
-print('There are bands from ' +str(len(number_of_countries))+ ' registered in BA2019')
+print('There are bands from ' +str(len(number_of_countries))+ ' countries registered in BA2019')
 
-table_ba = pd.DataFrame(list(zip(bands_list,genre_list_clean,band_country,band_website,band_url, band_text,band_videourl)),columns=['Band Name','Genre','Country','Band Website','BA URL','Description','Video URL'])
+table_ba = pd.DataFrame(list(zip(bands_list,genre_list_clean,band_country,band_website,band_url, band_description,band_videourl)),columns=['Band Name','Genre','Country','Band Website','BA URL','Description','Video URL'])
 #define a custom path to store the csv file: a cloned githug repo
 
 pathSlalom = r'C:\Users\michal.sicak\OneDrive - Slalom\Datapun\Brutal\\'
