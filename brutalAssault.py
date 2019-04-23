@@ -4,6 +4,9 @@ from bs4 import BeautifulSoup
 import re
 import pandas as pd
 
+#this is for the English version of the site
+#the Czech version seems to have more videos (based on first three bands)
+
 url = requests.get('https://www.brutalassault.cz/en/line-up').text
 soup = BeautifulSoup(url, 'html.parser')
 
@@ -49,6 +52,8 @@ for band in band_link:
 #test_link = band_links[0]
 band_country = []
 band_website = []
+band_videourl = []
+
 for link in band_url:
 	temp_url = requests.get(link).text
 	temp_soup = BeautifulSoup(temp_url, 'html.parser')
@@ -60,8 +65,13 @@ for link in band_url:
 	#get band description text
 	band_rawtext = re.search('\\t\w+.+',band_text.text)
 	band_text = band_rawtext[0].strip('\t')
-	
-table_ba = pd.DataFrame(list(zip(bands_list,genre_list_clean,band_country,band_website,band_url, band_text)),columns=['Band Name','Genre','Country','Band Website','BA URL','Description'])
+	#video link - need error handling if find = nonetype or something similar
+	try:
+		band_videourl.append(temp_soup.find('iframe')['src'])
+	except:
+		band_videourl.append('No Video')
+		
+table_ba = pd.DataFrame(list(zip(bands_list,genre_list_clean,band_country,band_website,band_url, band_text,band_videourl)),columns=['Band Name','Genre','Country','Band Website','BA URL','Description','Video URL'])
 #define a custom path to store the csv file: a cloned githug repo
 
 path = r'C:\Users\michal.sicak\OneDrive - Slalom\Datapun\Brutal\\'
