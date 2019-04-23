@@ -48,6 +48,8 @@ for band in band_link:
 #write a code that takes each thumbnail and saves it
 #add all these into a data frame and store it on github/s3 bucket
 
+print('There is '+ str(len(bands_list))+ ' bands so far')
+
 #test for one band link:
 #test_link = band_links[0]
 band_country = []
@@ -65,12 +67,20 @@ for link in band_url:
 	#get band description text
 	band_rawtext = re.search('\\t\w+.+',band_text.text)
 	band_text = band_rawtext[0].strip('\t')
-	#video link - need error handling if find = nonetype or something similar
+	#video link - error handling if find = nonetype or something similar
 	try:
 		band_videourl.append(temp_soup.find('iframe')['src'])
 	except:
 		band_videourl.append('No Video')
 		
+print('Together, there is ' + str(len(band_videourl))+ ' videos in bands profiles')
+
+#find out how many unique countries are represented:
+band_set = set(band_country)
+number_of_countries = (list(band_set))
+
+print('There are bands from ' +str(len(number_of_countries))+ ' registered in BA2019')
+
 table_ba = pd.DataFrame(list(zip(bands_list,genre_list_clean,band_country,band_website,band_url, band_text,band_videourl)),columns=['Band Name','Genre','Country','Band Website','BA URL','Description','Video URL'])
 #define a custom path to store the csv file: a cloned githug repo
 
