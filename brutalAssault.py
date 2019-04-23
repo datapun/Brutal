@@ -42,24 +42,28 @@ for band in band_link:
 	bands = band['href']
 	band_url.append(bands)
 
-
-#write a code that takes each url, opens it, and takes country and band's website from there
 #write a code that takes each thumbnail and saves it
 #add all these into a data frame and store it on github/s3 bucket
 
 #test for one band link:
 #test_link = band_links[0]
 band_country = []
-
+band_website = []
 for link in band_url:
 	temp_url = requests.get(link).text
 	temp_soup = BeautifulSoup(temp_url, 'html.parser')
 	temp_band_country = temp_soup.find('h5').text
 	band_country.append(temp_band_country.strip('Country:').strip())
+	temp_band_website = temp_soup.find('p',class_='officialWebiste').find('a')['href']
+	band_website.append(temp_band_website)
 
-table_ba = pd.DataFrame(list(zip(bands_list,genre_list_clean,band_country,band_url)),columns=['Band Name','Genre','BA URL'])
+table_ba = pd.DataFrame(list(zip(bands_list,genre_list_clean,band_country,band_website,band_url)),columns=['Band Name','Genre','Country','Band Website','BA URL'])
+#define a custom path to store the csv file: a cloned githug repo
+
+path = r'C:\Users\michal.sicak\OneDrive - Slalom\Datapun\Brutal\\'
 
 #store the table in a data frame, without the row numbers (index=False)
-path = r'D:\___Projects\datasets\brutalAssault\'
 
-table_ba.to_csv(path+'brutal_table.csv',index=False)
+table_ba.to_csv(path+'brutal_assault_2019_bands.csv',index=False)
+
+#can i then commit from python ?
