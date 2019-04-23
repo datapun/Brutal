@@ -74,13 +74,11 @@ for link in band_url:
 table_ba = pd.DataFrame(list(zip(bands_list,genre_list_clean,band_country,band_website,band_url, band_text,band_videourl)),columns=['Band Name','Genre','Country','Band Website','BA URL','Description','Video URL'])
 #define a custom path to store the csv file: a cloned githug repo
 
-path = r'C:\Users\michal.sicak\OneDrive - Slalom\Datapun\Brutal\\'
+pathSlalom = r'C:\Users\michal.sicak\OneDrive - Slalom\Datapun\Brutal\\'
+pathHome = r'D:\___Projects\Python\.python_virtual_environments\Brutal\\'
 
 #store the table in a data frame, without the row numbers (index=False)
 
-table_ba.to_csv(path+'brutal_assault_2019_bands.csv',index=False)
+table_ba.to_csv(pathHome+'brutal_assault_2019_bands.csv',index=False)
 
 #can i then commit from python ?
-
-#how to get the band description text?
-#
