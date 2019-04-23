@@ -56,8 +56,12 @@ for link in band_url:
 	band_country.append(temp_band_country.strip('Country:').strip())
 	temp_band_website = temp_soup.find('p',class_='officialWebiste').find('a')['href']
 	band_website.append(temp_band_website)
-
-table_ba = pd.DataFrame(list(zip(bands_list,genre_list_clean,band_country,band_website,band_url)),columns=['Band Name','Genre','Country','Band Website','BA URL'])
+	band_text = temp_soup.find('div',class_='page_content')
+	#get band description text
+	band_rawtext = re.search('\\t\w+.+',band_text.text)
+	band_text = band_rawtext[0].strip('\t')
+	
+table_ba = pd.DataFrame(list(zip(bands_list,genre_list_clean,band_country,band_website,band_url, band_text)),columns=['Band Name','Genre','Country','Band Website','BA URL','Description'])
 #define a custom path to store the csv file: a cloned githug repo
 
 path = r'C:\Users\michal.sicak\OneDrive - Slalom\Datapun\Brutal\\'
@@ -67,3 +71,6 @@ path = r'C:\Users\michal.sicak\OneDrive - Slalom\Datapun\Brutal\\'
 table_ba.to_csv(path+'brutal_assault_2019_bands.csv',index=False)
 
 #can i then commit from python ?
+
+#how to get the band description text?
+#
