@@ -1,5 +1,5 @@
 import requests
-import time
+#import time
 from bs4 import BeautifulSoup
 import re
 import pandas as pd
@@ -70,8 +70,12 @@ for link in band_url:
 	temp_band_website = temp_soup.find('p',class_='officialWebiste').find('a')['href']
 	band_website.append(temp_band_website)
 	band_text = temp_soup.find('div',class_='page_content').text
-	charpos = band_text.find('\t\t\t\t\t\t')
-	band_clean_text = band_text[charpos+6:]
+	#charpos = band_text.find('\t\t\t\t\t\t')
+	charpos = band_text.find('official website')
+	band_clean_text = band_text[charpos+17:]
+	
+	#a very raw text string. needs cleaning with regex - remove everything before \t\t\t\t\t\t
+	
 	band_description.append(band_clean_text)
 	#get band description text. this does not work as the string is different per band
 	#this caused the script to be cut off after 20 bands or so
@@ -103,6 +107,6 @@ pathHome = r'D:\___Projects\Python\.python_virtual_environments\Brutal\\'
 
 #store the table in a data frame, without the row numbers (index=False)
 
-table_ba.to_csv(pathHome+'brutal_assault_2019_bands.csv',index=False)
+table_ba.to_csv(pathSlalom+'brutal_assault_2019_bands.csv',index=False)
 
 #can i then commit from python ?
