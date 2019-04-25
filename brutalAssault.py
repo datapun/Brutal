@@ -3,15 +3,20 @@ import requests
 from bs4 import BeautifulSoup
 import re
 import pandas as pd
+import platform
 
 #can i then commit from python ?
 #can i simplify? ask user for input (cz or en) and then run just one half of the code. 
+#done
 #or even split into two scripts and run only one required by user input?
 #or parametrize cz and en? the only difference is in country/zeme and genre/styl, tags are the same
+#maybe later
 
-#this is for the English version of the site
-#the Czech version seems to have more videos (based on first three bands)
+#determine if the script needs to be run (if there are new articles)
+#eg store a list of article dates in a file and then query the articles each time a script is run, compare to the file. 
+#if it's the same, do not run the script, else run the script and update the reference file with the newest article date
 
+#user input selection if they want to scrape the English or Czech site
 while True:
 	try:
 		user_input = int(input('Language Menu:\n 1 - English \n 2 - Czech \n Your Choice: '))
@@ -26,9 +31,17 @@ while True:
 	else:
 		break
 
+#determine where the script is run from - work laptop or home desktop
+#this drives which path is used
+computer_name = platform.node()
+if computer_name == 'muxy-PC':
+	path = r'D:\___Projects\Python\.python_virtual_environments\Brutal\\'
+else:
+	path = r'C:\Users\michal.sicak\OneDrive - Slalom\Datapun\Brutal\\'
+
 def english_brutal():
-	en_url = requests.get('https://www.brutalassault.cz/en/line-up').text
-	soup = BeautifulSoup(en_url, 'html.parser')
+	url = requests.get('https://www.brutalassault.cz/en/line-up').text
+	soup = BeautifulSoup(url, 'html.parser')
 
 	bands = soup.findAll('strong',class_='band_lineup_title')
 
@@ -73,6 +86,9 @@ def english_brutal():
 	band_videourl = []
 	band_description = []
 
+#images per band
+image = soup.find('div',class_='band_image').img['src']
+
 	for link in band_url:
 		temp_url = requests.get(link).text
 		temp_soup = BeautifulSoup(temp_url, 'html.parser')
@@ -115,16 +131,9 @@ def english_brutal():
 	print('There are bands from ' +str(len(number_of_countries))+ ' countries registered in BA2019')
 
 	table_ba = pd.DataFrame(list(zip(bands_list,genre_list_clean,band_country,band_website,band_url, band_description,band_videourl)),columns=['Band Name','Genre','Country','Band Website','BA URL','Description','Video URL'])
-	#define a custom path to store the csv file: a cloned githug repo
-
-	pathSlalom = r'C:\Users\michal.sicak\OneDrive - Slalom\Datapun\Brutal\\'
-	pathHome = r'D:\___Projects\Python\.python_virtual_environments\Brutal\\'
 
 	#store the table in a data frame, without the row numbers (index=False)
-
-	table_ba.to_csv(pathSlalom+'brutal_assault_2019_bands.csv',index=False)
-
-#can i then commit from python ?
+	table_ba.to_csv(path+'brutal_assault_2019_bands.csv',index=False)
 
 def czech_brutal():
 	#czech version of the same code
@@ -216,14 +225,9 @@ def czech_brutal():
 	print('Na Brutale su zatial registrovane kapely z ' +str(len(number_of_countries))+ ' krajin')
 
 	table_ba = pd.DataFrame(list(zip(bands_list,genre_list_clean,band_country,band_website,band_url, band_description,band_videourl)),columns=['Band Name','Genre','Country','Band Website','BA URL','Description','Video URL'])
-	#define a custom path to store the csv file: a cloned githug repo
-
-	pathSlalom = r'C:\Users\michal.sicak\OneDrive - Slalom\Datapun\Brutal\\'
-	pathHome = r'D:\___Projects\Python\.python_virtual_environments\Brutal\\'
 
 	#store the table in a data frame, without the row numbers (index=False)
-
-	table_ba.to_csv(pathHome+'brutal_assault_2019_kapely.csv',index=False)
+	table_ba.to_csv(path+'brutal_assault_2019_kapely.csv',index=False)
 
 if user_input == 1:
 	english_brutal()
