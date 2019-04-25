@@ -188,8 +188,8 @@ def czech_brutal():
 		band_website.append(temp_band_website)
 		band_text = temp_soup.find('div',class_='page_content').text
 		#charpos = band_text.find('\t\t\t\t\t\t')
-		charpos = band_text.find('official website')
-		band_clean_text = band_text[charpos+17:]
+		charpos = band_text.find('oficiální stránky')
+		band_clean_text = band_text[charpos+17:].strip()
 		
 		#a very raw text string. needs cleaning with regex - remove everything before \t\t\t\t\t\t
 		#replaced this logic with "remove everything before official website, inclusive" - see above
