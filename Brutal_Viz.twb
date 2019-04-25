@@ -1,0 +1,555 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20191.19.0123.1906                               -->
+<workbook original-version='18.1' source-build='2019.1.0 (20191.19.0123.1906)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='brutal_assault_2019_kapely' inline='true' name='federated.0das8nm0i5opyk1eo7xom1n3izuu' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='brutal_assault_2019_kapely' name='textscan.17g77rv1f5rdr219ykgb30hn408e'>
+            <connection class='textscan' directory='C:/Users/michal.sicak/OneDrive - Slalom/Datapun/Brutal' filename='brutal_assault_2019_kapely.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.17g77rv1f5rdr219ykgb30hn408e' name='brutal_assault_2019_kapely.csv' table='[brutal_assault_2019_kapely#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_GB' separator=','>
+            <column datatype='string' name='Band Name' ordinal='0' />
+            <column datatype='string' name='Genre' ordinal='1' />
+            <column datatype='string' name='Country' ordinal='2' />
+            <column datatype='string' name='Band Website' ordinal='3' />
+            <column datatype='string' name='BA URL' ordinal='4' />
+            <column datatype='string' name='Description' ordinal='5' />
+            <column datatype='string' name='Video URL' ordinal='6' />
+            <column datatype='string' name='Image' ordinal='7' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[brutal_assault_2019_kapely.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;£&quot;</attribute>
+              <attribute datatype='string' name='debit-close-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='debit-open-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Band Name</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Band Name]</local-name>
+            <parent-name>[brutal_assault_2019_kapely.csv]</parent-name>
+            <remote-alias>Band Name</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Genre</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Genre]</local-name>
+            <parent-name>[brutal_assault_2019_kapely.csv]</parent-name>
+            <remote-alias>Genre</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Country</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Country]</local-name>
+            <parent-name>[brutal_assault_2019_kapely.csv]</parent-name>
+            <remote-alias>Country</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Band Website</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Band Website]</local-name>
+            <parent-name>[brutal_assault_2019_kapely.csv]</parent-name>
+            <remote-alias>Band Website</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>BA URL</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[BA URL]</local-name>
+            <parent-name>[brutal_assault_2019_kapely.csv]</parent-name>
+            <remote-alias>BA URL</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Description</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Description]</local-name>
+            <parent-name>[brutal_assault_2019_kapely.csv]</parent-name>
+            <remote-alias>Description</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Video URL</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Video URL]</local-name>
+            <parent-name>[brutal_assault_2019_kapely.csv]</parent-name>
+            <remote-alias>Video URL</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Image</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Image]</local-name>
+            <parent-name>[brutal_assault_2019_kapely.csv]</parent-name>
+            <remote-alias>Image</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Ba Url' datatype='string' name='[BA URL]' role='dimension' type='nominal' />
+      <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <layout dim-ordering='alphabetic' dim-percentage='0.578313' measure-ordering='alphabetic' measure-percentage='0.421687' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United Kingdom&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+    </datasource>
+    <datasource caption='Attendance (Brutal Assault Schedule)' inline='true' name='federated.0qi5br61o69wbn11dr2xu05opgg8' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Brutal Assault Schedule' name='excel-direct.1o0pa46146jh1k1b6mtxd0tj0vue'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/michal.sicak/OneDrive - Slalom/Datapun/Brutal/Brutal Assault Schedule.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation connection='excel-direct.1o0pa46146jh1k1b6mtxd0tj0vue' name='Attendance' table='[Attendance$]' type='table'>
+          <columns gridOrigin='A1:E23:no:A1:E23:0' header='yes' outcome='6'>
+            <column datatype='integer' name='Year' ordinal='0' />
+            <column datatype='integer' name='Attendance' ordinal='1' />
+            <column datatype='string' name='Location' ordinal='2' />
+            <column datatype='integer' name='bands' ordinal='3' />
+            <column datatype='integer' name='days' ordinal='4' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Year]</local-name>
+            <parent-name>[Attendance]</parent-name>
+            <remote-alias>Year</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Attendance</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Attendance]</local-name>
+            <parent-name>[Attendance]</parent-name>
+            <remote-alias>Attendance</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Location</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Location]</local-name>
+            <parent-name>[Attendance]</parent-name>
+            <remote-alias>Location</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RGB_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bands</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[bands]</local-name>
+            <parent-name>[Attendance]</parent-name>
+            <remote-alias>bands</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>days</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[days]</local-name>
+            <parent-name>[Attendance]</parent-name>
+            <remote-alias>days</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Attendance]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:E23:no:A1:E23:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
+      <column caption='Bands' datatype='integer' name='[bands]' role='measure' type='quantitative' />
+      <column caption='Days' datatype='integer' name='[days]' role='measure' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.46988' measure-ordering='alphabetic' measure-percentage='0.53012' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United Kingdom&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{25B3CAFE-06FE-48C6-9887-4E5AAEF35880}' />
+    </worksheet>
+    <worksheet name='attendance'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Attendance (Brutal Assault Schedule)' name='federated.0qi5br61o69wbn11dr2xu05opgg8' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0qi5br61o69wbn11dr2xu05opgg8'>
+            <column datatype='integer' name='[Attendance]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Location]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
+            <column caption='Bands' datatype='integer' name='[bands]' role='measure' type='quantitative' />
+            <column-instance column='[Location]' derivation='None' name='[none:Location:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Year]' derivation='None' name='[none:Year:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Attendance]' derivation='Sum' name='[sum:Attendance:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[bands]' derivation='Sum' name='[sum:bands:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='table'>
+            <format attr='omit-on-special' field='[federated.0qi5br61o69wbn11dr2xu05opgg8].[sum:Attendance:qk]' value='false' />
+            <format attr='break-on-special' field='[federated.0qi5br61o69wbn11dr2xu05opgg8].[sum:Attendance:qk]' value='false' />
+            <format attr='show-null-value-warning' field='[federated.0qi5br61o69wbn11dr2xu05opgg8].[sum:Attendance:qk]' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0qi5br61o69wbn11dr2xu05opgg8].[none:Location:nk]' />
+            </encodings>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0qi5br61o69wbn11dr2xu05opgg8].[sum:Attendance:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0qi5br61o69wbn11dr2xu05opgg8].[none:Location:nk]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0qi5br61o69wbn11dr2xu05opgg8].[sum:bands:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0qi5br61o69wbn11dr2xu05opgg8].[none:Location:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.0qi5br61o69wbn11dr2xu05opgg8].[sum:Attendance:qk] + [federated.0qi5br61o69wbn11dr2xu05opgg8].[sum:bands:qk])</rows>
+        <cols>[federated.0qi5br61o69wbn11dr2xu05opgg8].[none:Year:ok]</cols>
+      </table>
+      <simple-id uuid='{03549BA6-CAC2-4A0D-8614-C95ECF40B842}' />
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.10417' source-height='55'>
+    <window class='worksheet' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='159'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <default-map-tool-selection tool='2' />
+      </viewpoint>
+      <simple-id uuid='{C6D58185-6B4A-4FC3-8C9A-29578DB9DD20}' />
+    </window>
+    <window class='worksheet' maximized='true' name='attendance'>
+      <cards>
+        <edge name='left'>
+          <strip size='159'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='159'>
+            <card pane-specification-id='1' param='[federated.0qi5br61o69wbn11dr2xu05opgg8].[none:Location:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0qi5br61o69wbn11dr2xu05opgg8].[none:Location:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{77E88E84-BB75-4D2A-BCB6-FC31368257D7}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAABBNAAAQTQFnjAHg
+      AAACFUlEQVR4nO3TMQEAIAzAMMC/5yFjRxMFfXpnZg5Eve0A2GQA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQD
+      kGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBp
+      BiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA
+      0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDN
+      AKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxA
+      mgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKR9Y+0F
+      fBUOM1sAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='attendance' width='192'>
+      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
+      gg==
+    </thumbnail>
+  </thumbnails>
+</workbook>
