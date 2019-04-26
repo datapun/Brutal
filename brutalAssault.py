@@ -85,9 +85,9 @@ def english_brutal():
 	band_website = []
 	band_videourl = []
 	band_description = []
-
+	band_image = []
 #images per band
-image = soup.find('div',class_='band_image').img['src']
+#band_image_url = soup.find('div',class_='band_image').img['src']
 
 	for link in band_url:
 		temp_url = requests.get(link).text
@@ -104,24 +104,15 @@ image = soup.find('div',class_='band_image').img['src']
 		#charpos = band_text.find('\t\t\t\t\t\t')
 		charpos = band_text.find('official website')
 		band_clean_text = band_text[charpos+17:]
-		
 		#a very raw text string. needs cleaning with regex - remove everything before \t\t\t\t\t\t
 		#replaced this logic with "remove everything before official website, inclusive" - see above
 		band_description.append(band_clean_text)
-		#get band description text. this does not work as the string is different per band
-		#this caused the script to be cut off after 20 bands or so
-		#band_rawtext = re.search('\\t\w+.+',band_text.text)
-		#try:
-		#	band_text = band_rawtext[0].strip('\t')
-		#	band_texts.append(band_text)
-		#except:
-		#	band_texts.append('No description')
-		#video link - error handling if find = nonetype or something similar
 		try:
-			band_videourl.append(temp_soup.find('iframe')['src'])
+			band_videourl.append(temp_soup.find('iframe')['src'][2:])
 		except:
 			band_videourl.append('No Video')
-			
+		band_image_url = temp_soup.find('div',class_='band_image').img['src']
+		band_image.append(band_image_url)
 	print('Together, there is ' + str(len(band_videourl))+ ' videos in bands profiles')
 
 	#find out how many unique countries are represented:
@@ -130,7 +121,7 @@ image = soup.find('div',class_='band_image').img['src']
 
 	print('There are bands from ' +str(len(number_of_countries))+ ' countries registered in BA2019')
 
-	table_ba = pd.DataFrame(list(zip(bands_list,genre_list_clean,band_country,band_website,band_url, band_description,band_videourl)),columns=['Band Name','Genre','Country','Band Website','BA URL','Description','Video URL'])
+	table_ba = pd.DataFrame(list(zip(bands_list,genre_list_clean,band_country,band_website,band_url, band_description,band_videourl, band_image)),columns=['Band Name','Genre','Country','Band Website','BA URL','Description','Video URL','Image'])
 
 	#store the table in a data frame, without the row numbers (index=False)
 	table_ba.to_csv(path+'brutal_assault_2019_bands.csv',index=False)
@@ -182,7 +173,8 @@ def czech_brutal():
 	band_website = []
 	band_videourl = []
 	band_description = []
-
+	band_image = []
+	
 	for link in band_url:
 		temp_url = requests.get(link).text
 		temp_soup = BeautifulSoup(temp_url, 'html.parser')
@@ -196,8 +188,8 @@ def czech_brutal():
 		band_website.append(temp_band_website)
 		band_text = temp_soup.find('div',class_='page_content').text
 		#charpos = band_text.find('\t\t\t\t\t\t')
-		charpos = band_text.find('official website')
-		band_clean_text = band_text[charpos+17:]
+		charpos = band_text.find('oficiální stránky')
+		band_clean_text = band_text[charpos+17:].strip()
 		
 		#a very raw text string. needs cleaning with regex - remove everything before \t\t\t\t\t\t
 		#replaced this logic with "remove everything before official website, inclusive" - see above
@@ -212,10 +204,12 @@ def czech_brutal():
 		#	band_texts.append('No description')
 		#video link - error handling if find = nonetype or something similar
 		try:
-			band_videourl.append(temp_soup.find('iframe')['src'])
+			band_videourl.append(temp_soup.find('iframe')['src'][2:])
 		except:
 			band_videourl.append('No Video')
-			
+		band_image_url = temp_soup.find('div',class_='band_image').img['src']
+		band_image.append(band_image_url)
+		
 	print('V profiloch kapiel je dokopy ' + str(len(band_videourl))+ ' videi')
 
 	#find out how many unique countries are represented:
@@ -224,7 +218,7 @@ def czech_brutal():
 
 	print('Na Brutale su zatial registrovane kapely z ' +str(len(number_of_countries))+ ' krajin')
 
-	table_ba = pd.DataFrame(list(zip(bands_list,genre_list_clean,band_country,band_website,band_url, band_description,band_videourl)),columns=['Band Name','Genre','Country','Band Website','BA URL','Description','Video URL'])
+	table_ba = pd.DataFrame(list(zip(bands_list,genre_list_clean,band_country,band_website,band_url, band_description,band_videourl, band_image)),columns=['Band Name','Genre','Country','Band Website','BA URL','Description','Video URL','Image'])
 
 	#store the table in a data frame, without the row numbers (index=False)
 	table_ba.to_csv(path+'brutal_assault_2019_kapely.csv',index=False)
