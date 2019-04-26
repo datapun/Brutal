@@ -108,7 +108,7 @@ def english_brutal():
 		#replaced this logic with "remove everything before official website, inclusive" - see above
 		band_description.append(band_clean_text)
 		try:
-			band_videourl.append(temp_soup.find('iframe')['src'][2:])
+			band_videourl.append(temp_soup.find('iframe')['src'][2:].replace('/embed/','/watch?v='))
 		except:
 			band_videourl.append('No Video')
 		band_image_url = temp_soup.find('div',class_='band_image').img['src']
@@ -204,7 +204,8 @@ def czech_brutal():
 		#	band_texts.append('No description')
 		#video link - error handling if find = nonetype or something similar
 		try:
-			band_videourl.append(temp_soup.find('iframe')['src'][2:])
+			#need to replace /embed/ in the videourl with /watch?v=
+			band_videourl.append(temp_soup.find('iframe')['src'][2:].replace('/embed/','/watch?v='))
 		except:
 			band_videourl.append('No Video')
 		band_image_url = temp_soup.find('div',class_='band_image').img['src']
