@@ -108,7 +108,8 @@ def english_brutal():
 		#replaced this logic with "remove everything before official website, inclusive" - see above
 		band_description.append(band_clean_text)
 		try:
-			band_videourl.append(temp_soup.find('iframe')['src'][2:].replace('/embed/','/watch?v='))
+			band_videourl.append(temp_soup.find('iframe')['src'][2:])
+			#.replace('/embed/','/watch?v='))
 		except:
 			band_videourl.append('No Video')
 		band_image_url = temp_soup.find('div',class_='band_image').img['src']
