@@ -1,0 +1,44 @@
+Command line:
+
+Commit changes
+Git status -> check what files need to be added to tracking
+Git add <file>
+Git commit –m '<note>'
+Git push
+
+Git pull origin <branch>
+
+Create a branch and switch to it:
+
+Git checkout –b <branch>
+Or:
+Git branch <branch>
+Git checkout <branch>
+
+Commit changes, but do not merge. 
+Git commit –m '<note>'
+
+The branch stays there, and you can return to master (eg to make a fix). Move back to master:
+Git checkout master
+
+Move to another branch:
+Git checkout –b <branch2>
+
+Once all done and ready to merge to production, go:
+Git checkout master
+Git merge hotfix
+
+Then remove branch
+
+Git branch –d <branch2>
+
+Return to branch 1:
+Git checkout <branch>
+
+https://dont-be-afraid-to-commit.readthedocs.io/en/latest/git/commandlinegit.html
+
+To delete a remote branch:
+$ git push <remote_name> --delete <branch_name>
+
+To delete a local branch (in the cloned repo):
+Git branch – d <branch>
