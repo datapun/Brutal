@@ -1,5 +1,4 @@
 import requests
-#import time
 from bs4 import BeautifulSoup
 import re
 import pandas as pd
@@ -68,7 +67,6 @@ def english_brutal():
 	band_link = soup.findAll(class_='lineup_band_link')
 
 	band_url = []
-	#called band_links in the terminal
 	for band in band_link:
 		bands = band['href']
 		band_url.append(bands)
@@ -79,33 +77,28 @@ def english_brutal():
 	print('There is '+ str(len(bands_list))+ ' bands so far')
 	print('Adding more info, like country of origin, and videos')
 
-	#test for one band link:
-	#test_link = band_links[0]
 	band_country = []
 	band_website = []
 	band_videourl = []
 	band_description = []
 	band_image = []
-#images per band
-#band_image_url = soup.find('div',class_='band_image').img['src']
-
+	
+	#open each band link and scrape country, website, video URL etc.
 	for link in band_url:
 		temp_url = requests.get(link).text
 		temp_soup = BeautifulSoup(temp_url, 'html.parser')
 		temp_band_country = temp_soup.find('h5').text
-		clean_band_country = temp_band_country[-(len(temp_band_country)-temp_band_country.find(':')-2):]
-		#strip() at the end causes country names to be shortened from Spain to Spai etc.
-		band_country.append(clean_band_country)
+		#strip() at the end would cause country names to be shortened from Spain to Spai etc.
 		#strip removes any letter from the entire string, eg n from Spain
-		#therefore this is removed: strip('Country: '))#.strip(' '))
+		#therefore this is removed: strip('Country: ')).strip(' '))
+		clean_band_country = temp_band_country[-(len(temp_band_country)-temp_band_country.find(':')-2):]
+		band_country.append(clean_band_country)
 		temp_band_website = temp_soup.find('p',class_='officialWebiste').find('a')['href']
 		band_website.append(temp_band_website)
 		band_text = temp_soup.find('div',class_='page_content').text
-		#charpos = band_text.find('\t\t\t\t\t\t')
+		#remove everything before official website, inclusive
 		charpos = band_text.find('official website')
 		band_clean_text = band_text[charpos+17:]
-		#a very raw text string. needs cleaning with regex - remove everything before \t\t\t\t\t\t
-		#replaced this logic with "remove everything before official website, inclusive" - see above
 		band_description.append(band_clean_text)
 		try:
 			band_videourl.append(temp_soup.find('iframe')['src'][2:])
