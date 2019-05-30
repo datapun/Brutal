@@ -29,7 +29,7 @@ while True:
 		continue
 	else:
 		break
-
+    
 #determine where the script is run from - work laptop or home desktop
 #this drives which path is used
 computer_name = platform.node()
