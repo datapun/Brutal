@@ -29,7 +29,7 @@ while True:
 		continue
 	else:
 		break
-
+    
 #determine where the script is run from - work laptop or home desktop
 #this drives which path is used
 computer_name = platform.node()
@@ -222,4 +222,7 @@ if user_input == 1:
 	english_brutal()
 else:
 	czech_brutal()
+<<<<<<< HEAD
   
+=======
+>>>>>>> 9e160c1dd6acd493b586ff030c9f7980152158bc
