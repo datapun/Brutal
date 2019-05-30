@@ -222,3 +222,4 @@ if user_input == 1:
 	english_brutal()
 else:
 	czech_brutal()
+  
