@@ -102,7 +102,7 @@ def english_brutal():
 		band_description.append(band_clean_text)
 		try:
 			band_videourl.append(temp_soup.find('iframe')['src'][2:])
-			#.replace('/embed/','/watch?v='))
+      #.replace('/embed/','/watch?v='))
 		except:
 			band_videourl.append('No Video')
 		band_image_url = temp_soup.find('div',class_='band_image').img['src']
@@ -222,7 +222,3 @@ if user_input == 1:
 	english_brutal()
 else:
 	czech_brutal()
-<<<<<<< HEAD
-  
-=======
->>>>>>> 9e160c1dd6acd493b586ff030c9f7980152158bc
